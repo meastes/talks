@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>DevFest MN 2019</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-black-orange">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="572f19d4992c21acc2eb9d29028e2541"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 156px; height: auto;" data-block-id="baaa02a2c9df902fdb1c6161554b9c65"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Resilient UI System Testing with Puppeteer</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="2478da8c804983382f7a465851759366" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 459px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(204, 204, 204);">
+<p>Mike Eastes</p>
+
+<p>Senior Software Engineer, Code42</p>
+</div></div></section><section class="stack" data-id="6c30fe92c44bac8dec78c433c60d41b0"><section data-id="a86cb087738e6c5bb6cea2bc9b75945d"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="fad833109666f284c687e1cb6f5b4f07"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Seeing Red</h2>
+</div></div>
+
+<div class="sl-block" data-block-type="image" data-block-id="ec01ebc3ac8bc6b2f4252d93e8772e43" style="min-width: 4px; min-height: 4px; width: 960px; height: 70px; left: 0px; top: 315px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="2500" data-natural-height="183" style="" data-lazy-loaded="" data-src="devfest2019/f1ba9d2a8e94d492e19ef80e452d8dfe.png"></div></div></section><section data-id="848f09003db283b406d8ca789a7705ff">
+
+<div class="sl-block" data-block-type="image" data-block-id="0a8900a5fb5ba08fab8c230b0eaaf33a" style="min-width: 4px; min-height: 4px; width: 561px; height: 265px; left: 200px; top: 218px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="561" data-natural-height="265" style="" data-lazy-loaded="" data-src="devfest2019/bafefb07a6685d9c68766840c446264d.png"></div></div></section><section data-id="f78282a4321d3b4c9738ad3ceefe91b6"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="5c4649d24e2ffbb8c528cb208fc295d7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Issues</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 263px; height: auto;" data-block-id="e2eacc725d9f9cc1415c2fee25ec6b36"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Builds were slow</li>
+	<li>Testing required a full environment</li>
+	<li>Complex system interactions led to inconsistency</li>
+</ul>
+</div></div></section></section><section class="stack" data-id="7612401f1deda0ca440554241476a98c"><section data-id="058bd8e1fce6ed359a9fff9212bb33e4"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="42c3c9b1144930a56992347bc7681415"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h1>If tests are so flaky, why bother at all?</h1>
+</div></div></section><section data-id="2bc7df496ede6e6843d4656d6d46cc47"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="7adf5b7a4bb50eb9417a103970026765"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Automated Tests can...</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 263px; height: auto;" data-block-id="6e4eb76187753a4d37ca25a755f19589"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Catch JavaScript errors that happen at runtime</li>
+	<li>Catch edge cases in UI behavior</li>
+	<li>Validate that data makes it from the API to being rendered</li>
+	<li>Validate correctness of rare UI states (server errors)</li>
+</ul>
+</div></div></section><section data-id="6d04eb3c80b7cd0ca2dc9b82e6399120"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="b05fd4e7fbd91f563694c640cb20cc85"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Most important testing attribute</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 383px; height: auto;" data-block-id="8a1d75e01c7b183224317ea27d2d43f7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h2>Credibility</h2>
+</div></div></section><section data-id="c57db57fea116921533a3d0b47fa3092"><div class="sl-block" data-block-type="image" style="width: 710px; height: 476px; left: 125px; top: 154px; min-width: 4px; min-height: 4px;" data-block-id="2c2e75f0a880bb9a44f5aa19c1e15389"><div class="sl-block-content" style="z-index: 11;"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="23e882adf9ae17cb45d96396da0dd2b9" style="min-width: 4px; min-height: 4px; width: 960px; height: 714px; left: 0px; top: -7px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1470" data-natural-height="1094" data-lazy-loaded="" data-src="devfest2019/a63e00adfbf1fd75cf600639628c9999.png"></div></div></section><section data-id="53bbeeac61df6629264e5095f604d4a9"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="fe63fc0fd59fd4fc9c7f6b8d5ff39cdf"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Know when to cut your losses</h1>
+</div></div></section></section><section class="stack" data-id="0c63459ab3c3023854df2803060a8b92"><section data-id="d69dc6c155a75b11281412c035504b0d"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="e4fdfc936589a6df8a8f919e86f325b7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>First: Terminology</h1>
+</div></div></section><section data-id="00fab28beaf6d24dfc44e6a0f729fc27"><div class="sl-block" data-block-type="text" style="width: 384px; left: 288px; top: 142px; height: auto;" data-block-id="f95ebd6f6190597c7a43b45431f99eba"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2>Unit Test</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 288px; top: 247px; height: auto;" data-block-id="a04de7afa8607297abf8f66c1fe716b9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 12;" dir="ui">
+<blockquote>
+<p>Validates the correctness of a single unit of work (ie. function, interface).</p>
+</blockquote>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="c2a7595f0b8a492dc2570312065408a1" style="min-width: 4px; min-height: 4px; width: 260px; height: 123px; left: 220px; top: 475px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 260 123"><rect width="260" height="123" rx="0" ry="0" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="4e23c3e7081e2348687eca3ee455da20" style="height: auto; min-width: 30px; min-height: 30px; width: 167px; left: 267px; top: 491px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p>Web App</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="71d508339941ff92509de258b232d8f7" style="min-width: 4px; min-height: 4px; width: 146px; height: 59px; left: 334px; top: 539px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(208, 224, 227)" data-shape-stretch="true" style="z-index: 15;" data-shape-stroke-color="#ff0000" data-shape-stroke-width="4px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 146 59"><defs><clippath id="shape-mask-1-1548813421983"><rect width="146" height="59" rx="0" ry="0"></rect></clippath></defs><rect width="146" height="59" rx="0" ry="0" clip-path="url(#shape-mask-1-1548813421983)" class="shape-element" fill="rgb(208, 224, 227)" stroke="#ff0000" stroke-width="8"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="46b512352b6d6dc04e6fae8e9e859356" style="height: auto; min-width: 30px; min-height: 30px; width: 146px; left: 334px; top: 549px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(0, 0, 0);">
+<p>Function</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="c99b10a2f7906b84fd56ae112743bbf7" style="min-width: 4px; min-height: 4px; width: 263px; height: 123px; left: 537px; top: 475px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 263 123"><rect width="263" height="123" rx="0" ry="0" class="shape-element" fill="rgb(255, 153, 0)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="09a31140fdd3ddcbb02d6796057f0618" style="height: auto; min-width: 30px; min-height: 30px; width: 263px; left: 537px; top: 517px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;">
+<p>Server API</p>
+</div></div></section><section data-id="f06fd2bd0c40f9dab6d09a0a809fcca2"><div class="sl-block" data-block-type="text" style="width: 384px; left: 288px; top: 142px; height: auto;" data-block-id="da66851f2380e4a9206b00f395d85b51"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 10;">
+<h2>System Test</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 288px; top: 247px; height: auto;" data-block-id="aa430076221a583551896e1c0a9de39f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 11;">
+<blockquote>
+<p>Validates the correctness of a complete system including all modules (ie. visual components, state management, "glue code").</p>
+</blockquote>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 260px; height: 123px; left: 220px; top: 475px;" data-block-id="64d872c83eb286da8190e59ec4c76261"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 18;" data-shape-stroke-color="#ff0000" data-shape-stroke-width="4px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 260 123"><defs><clippath id="shape-mask-3-1548813521373"><rect width="260" height="123" rx="0" ry="0"></rect></clippath></defs><rect width="260" height="123" rx="0" ry="0" clip-path="url(#shape-mask-3-1548813521373)" class="shape-element" fill="rgb(74, 134, 232)" stroke="#ff0000" stroke-width="8"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 167px; left: 267px; top: 491px;" data-block-id="f0d9227956c70ba855e408d37be4094d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;">
+<p>Web App</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 146px; height: 59px; left: 334px; top: 539px;" data-block-id="13c3ef6896bd6199223d2c83ab643ae7"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(208, 224, 227)" data-shape-stretch="true" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 146 59"><rect width="146" height="59" rx="0" ry="0" class="shape-element" fill="rgb(208, 224, 227)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 146px; left: 334px; top: 549px;" data-block-id="47700a1605209eb54eb7aca8903abf67"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; color: rgb(0, 0, 0);">
+<p>Function</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 263px; height: 123px; left: 537px; top: 475px;" data-block-id="fe0bc4569b66bd611596bb0c83b04587"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 263 123"><rect width="263" height="123" rx="0" ry="0" class="shape-element" fill="rgb(255, 153, 0)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 263px; left: 537px; top: 517px;" data-block-id="78fa38daa5222eee2cfb79e1c01f7590"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;">
+<p>Server API</p>
+</div></div></section><section data-id="7dea86be8337be1431fd3b9b9d5ac88d"><div class="sl-block" data-block-type="text" style="width: 899px; left: 31px; top: 140px; height: auto;" data-block-id="d0ea7a3cdecf45800fce68bf2c510811"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left; z-index: 11;">
+<h2 style="text-align: center;">Acceptance  Test</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 384px; left: 288px; top: 247px; height: auto;" data-block-id="251f289c552d271caba95a66e8a43b35"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left; z-index: 12;">
+<blockquote>
+<p>Validates the correctness of complete service including all APIs and applications (ie. web UI, server API).</p>
+</blockquote>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 260px; height: 123px; left: 220px; top: 475px;" data-block-id="090cf321d65dbb84fc8b79b380dd73e7"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 260 123"><rect width="260" height="123" rx="0" ry="0" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 167px; left: 267px; top: 491px;" data-block-id="c59f6bdf48c3ce815d3956aef8cdfffd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p>Web App</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 146px; height: 59px; left: 334px; top: 539px;" data-block-id="c2eebe2c6acf29af5e866b59f53d5cac"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(208, 224, 227)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 146 59"><rect width="146" height="59" rx="0" ry="0" class="shape-element" fill="rgb(208, 224, 227)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 146px; left: 334px; top: 549px;" data-block-id="34b22e82e06931adf9857d692c0d0ae0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(0, 0, 0);">
+<p>Function</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 263px; height: 123px; left: 537px; top: 475px;" data-block-id="a6fddfa4a2f38d4bb35e3d90cd374244"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 153, 0)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 263 123"><rect width="263" height="123" rx="0" ry="0" class="shape-element" fill="rgb(255, 153, 0)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 263px; left: 537px; top: 517px;" data-block-id="eca51b295fe7ea7e15dff48c6ac2d050"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;">
+<p>Server API</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="0f43b99c94c80906c7d90ec1e36d0402" style="min-width: 4px; min-height: 4px; width: 580px; height: 123px; left: 220px; top: 475px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-shape-stroke-color="#ff0000" data-shape-stroke-width="4px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 580 123"><defs><clippath id="shape-mask-5-1548813548589"><rect width="580" height="123" rx="0" ry="0"></rect></clippath></defs><rect width="580" height="123" rx="0" ry="0" clip-path="url(#shape-mask-5-1548813548589)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#ff0000" stroke-width="8"></rect></svg></div></div></section></section><section class="stack" data-id="6165ae3ff65662db5e28f92b83550831"><section data-id="44ddd2a9982edae87c47eddb766d6de7"><div class="sl-block" data-block-type="text" style="width: 876px; left: 42px; top: 302px; height: auto;" data-block-id="19ee8fc81087d88a017c40d43c186f8d"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>System vs. Acceptance</h1>
+</div></div></section><section data-id="b6ae607788ee92fc0d3f3d42ede1741c"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 98px; height: auto;" data-block-id="76e9bc3344dcd1a3783d92fd38d63a22"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>System tests</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 172px; height: auto;" data-block-id="bf9bf6614619d4adac5366265f6c764f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Mock all data from server APIs</li>
+	<li>Execute in a headless browser</li>
+	<li>Validate correctness of the UI only</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 395px; height: auto;" data-block-id="e995840a5a879598d8aca0a09add9462"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 14;">
+<h2>Acceptance tests</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 469px; height: auto;" data-block-id="30b7a3189ad134959616e6af5d8b924f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<ul>
+	<li>Require real data</li>
+	<li>Often execute in a full browser</li>
+	<li>Validate correctness of entire system</li>
+</ul>
+</div></div></section><section data-id="aaa2ce4316cd7a3bf67e90ff45857060"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="26f40ccf7ccf0e7d3795f9ac9c66d115"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>One big system test advantage:</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 383px; height: auto;" data-block-id="7e2a60b304f9c47eaffa67f9b58457ec"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h2>Shorter Feedback Cycles</h2>
+</div></div></section></section><section class="stack" data-id="3229ed5f56368b133bd4188869e5c59f"><section data-id="ff9a0096d4c46d347db3f6e5fa456fbd"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="ed93b48c93dc85d96756f35c176a0f9e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>How did we get here?</h1>
+</div></div></section><section data-id="6bbdf220e44166c88f427d769657f12c"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="f0c22d353822ff5468bbb3cf3ff553a2"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Test Pyramid</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 710px; height: 476px; left: 125px; top: 154px; min-width: 4px; min-height: 4px;" data-block-id="28a268a1057e4fe2da3be757447324e0"><div class="sl-block-content" style="z-index: 12;"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="e0179b40775dd132a4a3c8d67e95b3ae" style="min-width: 4px; min-height: 4px; width: 680px; height: 501px; left: 140px; top: 142px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1451" data-natural-height="1069" data-lazy-loaded="" data-src="devfest2019/c781fe8fce7005fe22cad23c2371f205.png"></div></div></section><section data-id="b8673525275c5bf16a6e7f087074cc2a"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="20de026230f7e0a2fdb25a78b4e87ea7"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>"Test Hourglass"</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 710px; height: 476px; left: 125px; top: 154px; min-width: 4px; min-height: 4px;" data-block-id="a47283487ba4530b373607de346a783b"><div class="sl-block-content" style="z-index: 12;"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="1a88ee2d093c1fe3c20caf072218843c" style="min-width: 4px; min-height: 4px; width: 657px; height: 544px; left: 152px; top: 148px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1548" data-natural-height="1282" style="" data-lazy-loaded="" data-src="devfest2019/bec3108c3291e994deba8553b27a6ad4.png"></div></div></section></section><section class="stack" data-id="d4e9b472e86ef5a0c7a1285d7cdde073"><section data-id="583adf1fc7197618f05d427de45a5646"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="9e01e8a79912dfaaf9fe53c932333712"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Puppeteer saves the day</h1>
+</div></div></section><section data-id="5338d8c529f1e1d304c7de2101d96b2f"><div class="sl-block" data-block-type="text" data-block-id="73b99bb71ce9be65720f4527bf961595" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 272px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Puppeteer is a Node library provided by Google that allows you to control a webpage inside of a (headless) instance of Chrome.</p>
+</div></div></section><section data-id="2009109110494141c3401a328e7b3d16"><div class="sl-block" data-block-type="image" style="width: 710px; height: 476px; left: 125px; top: 154px; min-width: 4px; min-height: 4px;" data-block-id="614e07a1c68c7ef03421b8cca852916b"><div class="sl-block-content" style="z-index: 12;"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="9f8a1e2807e9109e06cceb04cfd98c1f" style="min-width: 4px; min-height: 4px; width: 960px; height: 543px; left: 0px; top: 79px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="2282" data-natural-height="1290" data-lazy-loaded="" data-src="devfest2019/d065145f7d20fc5837b315128709f548.png"></div></div></section><section data-id="c8c54fea1d275ec033fba3bbe62e837d"><div class="sl-block" data-block-type="image" style="width: 710px; height: 476px; left: 125px; top: 154px; min-width: 4px; min-height: 4px;" data-block-id="338e458123d222c63474752b3f406fd2"><div class="sl-block-content" style="z-index: 12;"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="3d3542a0e7953886affe6ad556e2218a" style="min-width: 4px; min-height: 4px; width: 960px; height: 640px; left: 0px; top: 30px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1242" data-natural-height="828" style="" data-lazy-loaded="" data-src="devfest2019/97c6c38b7f843579acfeac6d728ed0ae.png"></div></div></section></section><section class="stack" data-id="490a36cdc8c88ca0df07b665fd2f89ce"><section data-id="9155bc5fbc2766ba02256267e80b1e86"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="53befa8930a91f124d6688c45b2ff9b0"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Example Test</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="02e80d44f6f88b055b801f4586776891" style="min-width: 30px; min-height: 30px; width: 908px; height: 440px; left: 26px; top: 200px;"><div class="sl-block-content notranslate" style="z-index: 13; font-size: 150%;" data-highlight-theme="monokai"><pre class="javascript"><code>describe('Google', () =&gt; {
+  const Selector = {
+    SearchField: 'input[type="text"]',
+  };
+
+  beforeEach(async () =&gt; {
+    await page.goto('https://google.com');
+  });
+
+  it('should contain a search field', async () =&gt; {
+    const searchInput = await page.$(Selector.SearchField);
+    expect(searchInput).toBeTruthy();
+  });
+});
+</code></pre></div></div></section><section data-id="f0c314abfb9e63589eabf4a27fbbca36"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="ffcf713b30edb60b68ee43fe5263e984"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Example with Mock API</h1>
+</div></div></section><section data-id="6e01c786c60106d7460aad19ee73264e"><div class="sl-block" data-block-type="image" style="width: 710px; height: 476px; left: 125px; top: 154px; min-width: 4px; min-height: 4px;" data-block-id="5ef2cdf073af26fe9f37e20be1a72311"><div class="sl-block-content" style="z-index: 12;"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="325a248225cf7135200836775b234024" style="min-width: 4px; min-height: 4px; width: 960px; height: 469px; left: 0px; top: 116px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1986" data-natural-height="970" data-lazy-loaded="" data-src="devfest2019/b09f7f86bbf0b48eb3d6cbcca25b18df.png"></div></div></section><section data-id="044aeb68d655c16f3c22ea15c28fdd72">
+<div class="sl-block" data-block-type="code" data-block-id="978f0858bbdcc42aaafdaa0f6e831067" style="min-width: 30px; min-height: 30px; width: 960px; height: 700px; left: 0px; top: 0px;"><div class="sl-block-content notranslate" data-highlight-theme="monokai" style="z-index: 13; font-size: 87%;"><pre class="javascript"><code>describe('Weather', () =&gt; {
+  const Selector = {
+    Temperature: '[data-test="temperature"]',
+    Conditions: '[data-test="conditions"]',
+  };
+
+  const url = 'http://localhost:3000';
+
+  function mockResponse(data) {
+    page.on('request', (interceptedRequest) =&gt; {
+      if (interceptedRequest.url().endsWith('weather/get')) {
+        interceptedRequest.respond({
+          status: 200,
+          contentType: 'application/json; charset=utf-8',
+          headers: { 'Access-Control-Allow-Origin': '*' },
+          body: JSON.stringify(data),
+        });
+      } else {
+        interceptedRequest.continue();
+      }
+    });
+  }
+
+  beforeEach(() =&gt; {
+    page.setRequestInterception(true);
+  });
+
+  it('should contain the temperature and conditions', async () =&gt; {
+    mockResponse({ currently: { temperature: 42, summary: 'Sunny' } });
+    await page.goto(url);
+
+    await page.waitFor(Selector.Temperature);
+    await page.waitFor(Selector.Conditions);
+
+    const temp = await page.$(Selector.Temperature);
+    expect(await temp.$eval('*', node =&gt; node.innerText)).toBe('42');
+
+    const conditions = await page.$(Selector.Conditions);
+    expect(await conditions.$eval('*', node =&gt; node.innerText).toBe('Sunny');
+  });
+});
+</code></pre></div></div></section></section><section class="stack" data-id="76538c8766b3bcf4dd88bc90789c278c"><section data-id="8431bf020a6ba0618c8f7b4b15302054"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="b694d662d2627b3d35828665137d747c"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Other Puppeteer Features</h1>
+</div></div></section><section data-id="935f313aefe6c3f2d02f5ab1d64e6b9e"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 263px; height: auto;" data-block-id="a64471d024e2e533b3367a4c97d6b4a2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Generate images and PDFs from webpages</li>
+	<li>Compatible with any JavaScript test runner</li>
+	<li>Fully emulates a keyboard and mouse</li>
+	<li>The ability to slow down tests for easier debugging</li>
+	<li>Uses the real Chrome browser</li>
+</ul>
+</div></div></section></section><section class="stack" data-id="d73709fa83f5de8d900480b8164aa393"><section data-id="07aab17585a45c48111e21542c7289ba"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="04076a286e946022144cf8504d31e5f3"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>All in One Solution: Cypress</h1>
+</div></div></section><section data-id="a2ea6478f960633a158e2a70acb37b56"><div class="sl-block" data-block-type="image" style="width: 960px; height: 450px; left: 0px; top: 125px; min-width: 4px; min-height: 4px;" data-block-id="f80e3ee0ac9c236c52e9db9aeaece08b"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="1140" data-natural-height="534" style="" data-lazy-loaded="" data-src="devfest2019/5e929d8d83b8d8ab8348d473d61f6fc8.png"></div></div></section><section data-id="eb6005d0f4f469a44fee514fe60ab484"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 42px; height: auto;" data-block-id="d543016306b532a38132a9a10fd2a538"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Example</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="c41c9fe6484b95b5f224f0c8584f5d4b" style="min-width: 30px; min-height: 30px; width: 847px; height: 300px; left: 57px; top: 210px;"><div class="sl-block-content notranslate" data-highlight-theme="monokai" style="z-index: 12; font-size: 150%;"><pre class="javascript"><code>describe('Website tests', () =&gt; {
+  it('shows content when clicking the button', () =&gt; {
+    cy.visit('https://www.mywebsite.com');
+
+    cy.get('.button').click();
+
+    cy.get('.content').should('exist');
+  });
+});</code></pre></div></div></section><section data-id="c2d4835d90d16ad0a84acdf531403ff0"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="383b9ef4e3d6e6b6775c8855ddea42b9"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Includes many nice features</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 337px; height: auto;" data-block-id="67c63ad0bcfe579cfb81e730d605ab77"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Screenshots / videos</li>
+	<li>Utility functions</li>
+	<li>Test debugger</li>
+</ul>
+</div></div></section><section data-id="e2c843d1c290dc4ac74e548923ed43d0"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="1327626887d62a794d6cf7ef242327cf"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Downsides</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 263px; height: auto;" data-block-id="7d87dca862c056e0f9e4afb6769c471a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Less control</li>
+	<li>More bugs</li>
+	<li>Need to write tests in a different way (no variables!)</li>
+</ul>
+</div></div></section><section data-id="bb3d5fb8f8d29ef7734d842081caeffe"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="653dd16ff41a232df0e04610c2cf169e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Would I recommend Cypress?</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 383px; height: auto;" data-block-id="a7d7e267a684372beca5a88c146510df"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h2>It depends...</h2>
+</div></div></section></section><section class="stack" data-id="58e2b6d9b7499fed0f1ac2be4c29b137"><section data-id="fffd66975bf2235368fcd856aa86f3a2"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="87878b1f4bb784c1e38abb8308f0fd36"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Tips to Improve Reliability</h1>
+</div></div></section><section data-id="5c69ffe7dec05d2c880350090d0aaf89"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 70px; height: auto;" data-block-id="fe7c575446a044a50b2f17e285523077"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Avoid hard-coded waits</h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="e7829082eca04e8732fe4a4edbaa8be5" style="min-width: 4px; min-height: 4px; width: 509px; height: 335px; left: 219px; top: 313px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="1920" data-natural-height="1263" style="" data-lazy-loaded="" data-src="devfest2019/209855ff5323c75ccb9fce8196f5e4e2"></div></div></section><section data-id="ec3c354fe6824045948d2a21630b6163"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 70px; height: auto;" data-block-id="8be124f5837f348375bd754f35d8d600"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Multiple assertions are okay!</h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="d583292c0da60c2e07d3199501a3c90d" style="min-width: 4px; min-height: 4px; width: 610px; height: 343px; left: 175px; top: 319px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="1920" data-natural-height="1080" style="" data-lazy-loaded="" data-src="devfest2019/5f87aa453d23eaa1b50c4a44aaf73c70"></div></div></section><section data-id="b6fc44b002468d94c9d607c781de1495"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 59px; height: auto;" data-block-id="3d293389d68f6dc89c0fa8f373e6f1f8"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Consider your comprehensive test coverage</h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="36310829a09167df4f18b27deab8dd2d" style="min-width: 4px; min-height: 4px; width: 445px; height: 355px; left: 258px; top: 313px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="445" data-natural-height="355" style="" data-lazy-loaded="" data-src="devfest2019/3d5f3cc9d492a0d6a025a73278d84f3b.png"></div></div></section></section><section class="stack" data-id="e91001c68aaf4b66bf42e7e267949dd3"><section data-id="f5799f7cce4cfcf9f7fbe66984bd572e"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="21f5dc217d99a4d904d78c916d3df36c"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Results</h1>
+</div></div></section><section data-id="e4741929c2289bf5323d248b86c5afb4"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="cf9f9a85f64f44126ae75368673e28f6"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Improvements</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 263px; height: auto;" data-block-id="1c6c560bd96e5ab5582ae16be551cfab"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>Builds complete in less than half the time</li>
+	<li>Tests run on every PR; only running the web app is required</li>
+	<li>Reduced complexity and shorter feedback cycle resulted in less random failures</li>
+</ul>
+</div></div></section><section data-id="bdfbd6810ba784936869477597c37fc7"><div class="sl-block" data-block-type="image" data-block-id="066366d953c36a910306aba138b86c50" style="min-width: 4px; min-height: 4px; width: 960px; height: 55px; left: 0px; top: 323px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="1614" data-natural-height="93" style="" data-lazy-loaded="" data-src="devfest2019/b10c9fc9b18634c205a6efcf004b0152.png"></div></div></section></section><section class="stack" data-id="ee2be59168892cfd2337f75681e01af0"><section data-id="a16d5a6c71c656d4828b7826c5a5d450"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 302px; height: auto;" data-block-id="b6d05d5f3e960e404d0a4aad4410b698"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Where next?</h1>
+</div></div>
+</section><section data-id="deb0157faea843aee87e0d0e58c99367"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="f7fecf0bc23503abd7a05537e3158717"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Continuous Delivery</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="c05d0a98fd55e12eb799781d973ede31" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 363px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Following development practices that allow you to release at any time.</p>
+</div></div></section></section><section data-id="efb5ed72201a379764a66b22d742be6d"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="3faf4fcf712eaedf3ca2e3cfdda85d13"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Mike Eastes</h1>
+
+<p>mike.eastes@code42.com</p>
+
+<p>https://github.com/meastes</p>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1400493,"slug":"devfest2019","title":"DevFest MN 2019","description":"","width":960,"height":700,"visibility":"all","published_at":"2018-12-20T02:38:33.581Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/c283aee4412adfafb22eafee8c4b5f91/thumb.jpg?1549118113","view_count":4,"user":{"id":908584,"username":"meastes","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/a5bf3b6a075c97dc7298e5e54659fc09?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":true,"pro":false,"lite":true,"team_id":null,"settings":{"id":1623743,"present_controls":false,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"black-orange","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":57,"rtl":false,"version":2,"collaborative":true,"deck_user_editor_limit":1,"data_updated_at":1549135082580,"font_typekit":null,"font_google":null,"notes":{"572f19d4992c21acc2eb9d29028e2541":"","a86cb087738e6c5bb6cea2bc9b75945d":"History lesson at Code","848f09003db283b406d8ca789a7705ff":"","53bbeeac61df6629264e5095f604d4a9":"","ff9a0096d4c46d347db3f6e5fa456fbd":"","b8673525275c5bf16a6e7f087074cc2a":"","d69dc6c155a75b11281412c035504b0d":"","00fab28beaf6d24dfc44e6a0f729fc27":"","2baee40c2390ee5b03c82bce9b148bfd":"","f06fd2bd0c40f9dab6d09a0a809fcca2":"","7dea86be8337be1431fd3b9b9d5ac88d":"","6bbdf220e44166c88f427d769657f12c":"","b6ae607788ee92fc0d3f3d42ede1741c":"","44ddd2a9982edae87c47eddb766d6de7":"","583adf1fc7197618f05d427de45a5646":"","5338d8c529f1e1d304c7de2101d96b2f":"","9155bc5fbc2766ba02256267e80b1e86":"","044aeb68d655c16f3c22ea15c28fdd72":"","f0c314abfb9e63589eabf4a27fbbca36":"","07aab17585a45c48111e21542c7289ba":"","f78282a4321d3b4c9738ad3ceefe91b6":"","f5799f7cce4cfcf9f7fbe66984bd572e":"","c2d4835d90d16ad0a84acdf531403ff0":"","2aca219072cdfa1233b998318b1e7375":"Example: tab key","fffd66975bf2235368fcd856aa86f3a2":"","5c69ffe7dec05d2c880350090d0aaf89":"","ec3c354fe6824045948d2a21630b6163":"","b6fc44b002468d94c9d607c781de1495":"","033bd5456f4efdb2b362ab96dc43c3d1":"","f0e4ed5384cacf4f75c9a3002dbf13c0":"","a16d5a6c71c656d4828b7826c5a5d450":"","e4741929c2289bf5323d248b86c5afb4":"","aaa2ce4316cd7a3bf67e90ff45857060":"","bd65af5cfb1ede58268c39bd701b220e":"","efb5ed72201a379764a66b22d742be6d":"","a2ea6478f960633a158e2a70acb37b56":"","058bd8e1fce6ed359a9fff9212bb33e4":"","2bc7df496ede6e6843d4656d6d46cc47":"","6e01c786c60106d7460aad19ee73264e":"","c8c54fea1d275ec033fba3bbe62e837d":"","2009109110494141c3401a328e7b3d16":"","6d04eb3c80b7cd0ca2dc9b82e6399120":"","c57db57fea116921533a3d0b47fa3092":"","8431bf020a6ba0618c8f7b4b15302054":"","935f313aefe6c3f2d02f5ab1d64e6b9e":"","eb6005d0f4f469a44fee514fe60ab484":"","3e3b843500649d8c5ea8ab366143dde9":"","e2c843d1c290dc4ac74e548923ed43d0":"","bb3d5fb8f8d29ef7734d842081caeffe":"","deb0157faea843aee87e0d0e58c99367":"","bdfbd6810ba784936869477597c37fc7":""}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal-plugins/zoom/zoom.js', async: true }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
